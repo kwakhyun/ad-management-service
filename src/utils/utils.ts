@@ -1,0 +1,41 @@
+import { MS_PER_DAY } from './conts';
+
+export const parseDate = (startDate: string, endDate: string | null = '') => {
+  if (!endDate) return startDate.slice(0, 10);
+  return `${startDate.slice(0, 10)} (${endDate.slice(0, 10)})`;
+};
+
+export const parseKRW = (cost: number) => {
+  if (cost < 100000) return `${Math.round(cost / 1000).toLocaleString()}천 원`;
+  return `${Math.round(cost / 10000).toLocaleString()}만 원`;
+};
+
+export const parseString = (num: number) => {
+  if (num >= 10000) return `${Math.round(num / 10000).toLocaleString()}만`;
+  return Math.round(num).toLocaleString();
+};
+
+export const getFluctucation = (prev: number, cur: number) =>
+  prev ? parseString(Math.abs(Math.round(cur - prev))) : 0;
+
+export const getPeriod = (fromDate: Date, toDate: Date) =>
+  Math.abs((fromDate.getTime() - toDate.getTime()) / MS_PER_DAY) + 1;
+
+export const getFormattedNumber = (num: number) => {
+  if (num < 10_000) {
+    return num.toLocaleString();
+  }
+  if (num < 100_000) {
+    return `${Number((num / 10_000).toFixed(1))}만`;
+  }
+  if (num < 1_000_000) {
+    return `${Number((num / 100_000).toFixed(1))}십만`;
+  }
+  if (num < 10_000_000) {
+    return `${Number((num / 1_000_000).toFixed(1))}백만`;
+  }
+  if (num < 100_000_000) {
+    return `${Number((num / 10_000_000).toFixed(1))}천만`;
+  }
+  return `${Number((num / 100_000_000).toFixed(1))}억`;
+};
