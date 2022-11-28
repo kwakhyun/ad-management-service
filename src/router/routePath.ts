@@ -1,12 +1,8 @@
-import Management from '../pages/Management';
 import Dashboard from '../pages/Dashboard';
-
-export const routePath = {
-  dashboard: '/',
-  management: '/management',
-};
+import AdManagement from '../pages/AdManagement';
+import { pathnames } from '../utils/conts';
 
 export const routes = [
-  { name: '대시보드', path: routePath.dashboard, element: Dashboard },
-  { name: '광고관리', path: routePath.management, element: Management },
+  { name: '대시보드', path: pathnames.dashboard, element: Dashboard },
+  { name: '광고관리', path: pathnames.management, element: AdManagement },
 ];
