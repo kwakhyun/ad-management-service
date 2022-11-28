@@ -16,7 +16,8 @@
     "noEmit": true, // 결과물을 만들지 않음 -> 타입 체크용
     "noImplicitAny": true, // 암묵적 any 금지
     "jsx": "react-jsx", // jsx 지원
-    "sourceMap": true // 디버깅시 원본 TypeScript 코드를 보여줌
+    "sourceMap": true, // 디버깅시 원본 TypeScript 코드를 보여줌
+    "baseUrl": "src" // baseUrl 지정
   },
-  "include": ["src"]
+  "include": ["src"] // 컴파일할 파일들
 }
